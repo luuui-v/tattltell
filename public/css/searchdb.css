@@ -1,0 +1,108 @@
+
+/* "*" marks a universalsetting to all the code 
+all browsers add a small gap all around the page. 
+The problem is, they use different properties and different values to do. 
+The best solution is to reset your margins and padding to 0.
+
+universal change:
+* {   padding: 0;   margin: 0;}
+
+minimal change:
+body {   padding: 0;   margin: 0;}
+
+*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+  /* "*" marks a universalsetting to all the code */
+  
+  html {
+    background-color: rgb(232, 232, 232);
+  }
+  
+  header {
+    position:fixed;
+    display: block;
+    text-align: right;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    background-color: rgb(232, 144, 144);
+    height: 130px;
+    top: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0 0 25px 0 black;
+    padding: 10;
+  }
+  
+  header * {
+    display: inline;
+    margin-left:auto;
+  }
+  
+  header h1 {
+    float: left;
+  }
+  
+  header li {
+    margin: 30px;
+  
+  }
+  
+  header li a {
+    color:black;
+    text-decoration: none;
+    font-size: large;
+  }
+  
+  ul a:hover{
+    color:rgb(255, 255, 255);
+  }
+
+  body {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    gap: 120px;
+    justify-content: center;
+  }
+
+  main {
+    width: 50%;
+    margin: 50px auto;
+    text-align: center;
+}
+
+table {
+    margin: 50px auto;
+}
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+
+th, td {
+    padding: 5px;
+}
+  
+  
+  footer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background-color: gray;
+    width: 100%;
+    bottom: 0;
+    text-align: center;
+    
+  }
+  
+  
+  footer h4 {
+    margin-top: 10;
+    height: 30;
+  
+  }
