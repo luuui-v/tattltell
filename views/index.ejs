@@ -1,8 +1,6 @@
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/searchdb.css" />
+    <link rel="stylesheet" type="text/css" href="public/index.css" />
     </head>
 
 
@@ -41,54 +39,39 @@
     
  </header>
 
- <body>
-    <main>
-        <label>Name:</label>
-        <input type="text" id="name-input">
-        <button id="add-name-btn">Add Name</button>
 
-        <br><br><br>
-        <div>
-           <input placeholder="search by name" id="search-input">
-           <button id="search-btn">Search</button>
-        </div>
+<body>
+    <div class= "container1">
+        <div class= "smartdata"><h2>smart data</h2></div>
+        <div class= "mainParagraph"><p>Discover company reviews, find wages, and compare cost of living information.
+            The content you want to display to users.</p></div>
 
-        <table id="table">
-            <thead>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Date Added</th>
-                <th>Delete</th>
-                <th>Edit</th>
-            </thead>
-            <tbody></tbody>
-        </table>
 
-        <section hidden id="update-row">
-            <label>Name:</label>
-            <input type="text" id="update-name-input">
-            <button id="update-row-btn">Update</button>
-        </section>
-    </main>
-    <script src="index.js"></script>
+    </div>
+        
+    <div class= "container2">
+        <form>
+    
+            <div class="username"><h3>username</h3></div>
+            <div class="placeholderUsername"><input type="text" placeholder="Enter your email"/></div>  
+            <div class="password"><h3>password</h3></div>
+            <div class="placeholderPassword"><input type="password" placeholder="Enter your password"/></div>
+    
+        <h4>
+            <input type="submit" value="Login"/>  
+            <input type="button" value="SignUp" onClick="create()"/>  
+        </h4>
+    
+        </form>
+    </div>
 </body>
 
 
 
-
-
-<div>
+<div> 
     <%= text %> 
 </div>
-
-
-
-
-
-
-
-
-
+    
 <footer> 
 
     <div class="widget">
