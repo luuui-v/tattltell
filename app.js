@@ -1,7 +1,7 @@
 //imports
 const express = require('express')
 const app = express()
-const port = 80
+const port = 3000
 const {MongoClient} =require('mongodb');
 const path = require('path');
 const dotenv = require ('dotenv');
@@ -70,5 +70,5 @@ app.get('/searchdb.ejs', (_req, res) => {
 
 
 
-//Listen on port 4000
-app.listen(port, () => console.log(`Listening on port ${80}`))
+//Listen on port 3000
+app.listen(port, () => console.log(`Listening on port ${3000}`))
