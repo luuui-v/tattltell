@@ -50,7 +50,6 @@ async function listDatabases(client){
 
 
 // Static files
-app.use(express.urlencoded( { extended: true } ));
 app.use(express.static('public'));
 app.use('/public', express.static(__dirname + '/public'));
 
