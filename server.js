@@ -1,8 +1,8 @@
 //imports
 const express = require('express');
 const app = express();
-const port = process.env.PORT;
-
+const port = process.env.PORT || 8080;
+ 
 const {MongoClient} =require('mongodb');
 const path = require('path');
 const { env } = require('process');
