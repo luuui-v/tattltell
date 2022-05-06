@@ -6,6 +6,9 @@ const port = process.env.PORT || 8080;
 const {MongoClient} =require('mongodb');
 const dotenv = require('dotenv');
 
+var ejs = require('ejs');
+var path = require('path');
+
 dotenv.config();
 
 
@@ -52,25 +55,23 @@ app.use('/public', express.static(__dirname + '/public'));
 
 
 // Set Views
-app.set('views', './views');
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-    res.render('index.html');
+    res.render('index.ejs');
   });
 
-  app.get('/index.html', function (req, res) {
-    res.render('index');
-  });
-  
+app.get('/index.ejs', (_req, res) => {
+    res.render('index', { text: 'This is EJS!'})
+})
 
-app.get('/searchdb.html', (_req, res) => {
-    res.render('searchdb', { text: 'This is EJS!'});
-});
+app.get('/searchdb.ejs', (_req, res) => {
+    res.render('searchdb', { text: 'This is EJS!'})
+})
 
- 
+
 
 //Listen on port 3000
 app.listen(port, () => console.log(`Listening on port ${port}`));
