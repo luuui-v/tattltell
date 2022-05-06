@@ -19,7 +19,7 @@
     "nodemon": "^2.0.16"
   },
   "scripts": {
-    "test": "(index.js)"
+    "test": "(app.js)"
   },
   "author": "",
   "license": "ISC"

@@ -1,7 +1,7 @@
 //imports
 const express = require('express');
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 8080;
 
 const {MongoClient} =require('mongodb');
 const path = require('path');
@@ -61,10 +61,14 @@ app.set('view engine', 'ejs');
 
 
 
-app.get('/index.ejs', (_req, res) => {
-    res.render('index', { text: 'This is EJS!'})
-});
+app.get('/', function (req, res) {
+    res.render('index', {text: 'This is EJS!'});
+  });
 
+  app.get('/index.ejs', function (req, res) {
+    res.render('index', {text: 'This is EJS!'});
+  });
+  
 app.get('/searchdb.ejs', (_req, res) => {
     res.render('searchdb', { text: 'This is EJS!'})
 });
