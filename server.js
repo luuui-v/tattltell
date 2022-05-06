@@ -4,9 +4,6 @@ const app = express();
 const port = process.env.PORT || 8080;
  
 const {MongoClient} =require('mongodb');
-const path = require('path');
-const { env } = require('process');
-
 const dotenv = require('dotenv');
 
 dotenv.config();
@@ -68,7 +65,7 @@ app.get('/', function (req, res) {
     res.render('index');
   });
   
-  
+
 app.get('/searchdb.html', (_req, res) => {
     res.render('searchdb', { text: 'This is EJS!'});
 });
