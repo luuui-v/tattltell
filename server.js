@@ -64,11 +64,11 @@ app.get('/', function (req, res) {
     res.render('index', {text: 'This is EJS!'});
   });
 
-  app.get('/index.ejs', function (req, res) {
+  app.get('/index.html', function (req, res) {
     res.render('index', {text: 'This is EJS!'});
   });
   
-app.get('/searchdb.ejs', (_req, res) => {
+app.get('/searchdb.html', (_req, res) => {
     res.render('searchdb', { text: 'This is EJS!'});
 });
 
