@@ -70,7 +70,7 @@ app.get('/', function (req, res) {
   });
   
 app.get('/searchdb.ejs', (_req, res) => {
-    res.render('searchdb', { text: 'This is EJS!'})
+    res.render('searchdb', { text: 'This is EJS!'});
 });
 
 
