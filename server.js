@@ -58,7 +58,7 @@ app.set('view engine', 'html');
 
 
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index.html');
   });
 
   app.get('/index.html', function (req, res) {
