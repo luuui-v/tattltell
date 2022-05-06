@@ -7,13 +7,13 @@
     "mongoose": "^6.3.1",
     "mysql2": "^2.3.3"
   },
-  "name": "nodejstut",
-  "description": "s.",
+  "name": "tattl",
+  "description": "",
   "version": "1.0.0",
-  "main": "NodeJS Tutorial",
+  "main": "NodeJS",
   "directories": {
     "test": "test",
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.16"

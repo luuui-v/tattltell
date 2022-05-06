@@ -1,12 +1,15 @@
 //imports
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = process.env.PORT;
+
 const {MongoClient} =require('mongodb');
 const path = require('path');
-const dotenv = require ('dotenv');
+const { env } = require('process');
 
-dotenv.config()
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 
 async function main(){
@@ -47,29 +50,25 @@ async function listDatabases(client){
 
 
 // Static files
-
-app.use(express.static('public'))
-app.use('/public', express.static(__dirname + '/public'))
+app.use(express.urlencoded( { extended: true } ));
+app.use(express.static('public'));
+app.use('/public', express.static(__dirname + '/public'));
 
 
 // Set Views
-app.set('views', './views')
-app.set('view engine', 'ejs')
+app.set('views', './views');
+app.set('view engine', 'ejs');
 
 
 
 app.get('/index.ejs', (_req, res) => {
     res.render('index', { text: 'This is EJS!'})
-})
+});
 
 app.get('/searchdb.ejs', (_req, res) => {
     res.render('searchdb', { text: 'This is EJS!'})
-})
-
-
-
-
+});
 
 
 //Listen on port 3000
-app.listen(port, () => console.log(`Listening on port ${3000}`))
+app.listen(port, () => console.log(`Listening on port ${port}`));
