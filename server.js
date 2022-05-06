@@ -56,16 +56,15 @@ app.use('/public', express.static(__dirname + '/public'));
 
 // Set Views
 app.set('views', './views');
-app.set('view engine', 'ejs');
-
-
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'html');
 
 app.get('/', function (req, res) {
-    res.render('index', {text: 'This is EJS!'});
+    res.render('index');
   });
 
   app.get('/index.html', function (req, res) {
-    res.render('index', {text: 'This is EJS!'});
+    res.render('index');
   });
   
 app.get('/searchdb.html', (_req, res) => {
