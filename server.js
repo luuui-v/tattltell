@@ -70,6 +70,7 @@ app.get('/searchdb.html', (_req, res) => {
     res.render('searchdb', { text: 'This is EJS!'});
 });
 
+ 
 
 //Listen on port 3000
 app.listen(port, () => console.log(`Listening on port ${port}`));
