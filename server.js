@@ -68,6 +68,7 @@ app.get('/', function (req, res) {
     res.render('index');
   });
   
+  
 app.get('/searchdb.html', (_req, res) => {
     res.render('searchdb', { text: 'This is EJS!'});
 });
