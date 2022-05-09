@@ -6,7 +6,7 @@ const res = require("express/lib/response");
  */
 exports.homepage = async(req, res) =>{
 
-    res.redner('index');
+    res.render('index');
 
 
 }

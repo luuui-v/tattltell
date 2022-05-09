@@ -1,4 +1,5 @@
 //imports
+const server = http.createServer(app);
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 
