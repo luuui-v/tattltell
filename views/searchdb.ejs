@@ -1,76 +1,12 @@
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="public/searchdb.css" />
-    </head>
-
-
-<!DOCTYPE html>
-<html>
-
-<title>TATTLTELL - Learn & Tell</title>
-
-
- <header>
-
-    <h1>
-        tattltell
-    </h1>
-        <nav class="navigationMenu">
-         <ul>
-            <li><a href="index.ejs">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="searchdb.ejs">Research</a></li>
-         </ul>
-        </nav>
- <br> 
- <br> 
- 
-    <h3>
-        Look up earnings in your area
-    </h3>
-<br>
-<br>
-
-      <input type="searchBar" placeholder="Employer, Position, Area">
-    <button>
-        search
-    </button>
-    
- </header>
-
+<h1>Hello World! search</h1>
  <body>
-    <main>
-        <label>Name:</label>
-        <input type="text" id="name-input">
-        <button id="add-name-btn">Add Name</button>
 
-        <br><br><br>
-        <div>
-           <input placeholder="search by name" id="search-input">
-           <button id="search-btn">Search</button>
-        </div>
+    <form action="/quotes" method="POST">
+        <input type="text" placeholder="name" name="name">
+        <input type="text" placeholder="quote" name="quote">
+        <button type="submit">Submit</button>
+      </form>
 
-        <table id="table">
-            <thead>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Date Added</th>
-                <th>Delete</th>
-                <th>Edit</th>
-            </thead>
-            <tbody></tbody>
-        </table>
-
-        <section hidden id="update-row">
-            <label>Name:</label>
-            <input type="text" id="update-name-input">
-            <button id="update-row-btn">Update</button>
-        </section>
-    </main>
-    <script src="index.js"></script>
 </body>
 
 
@@ -82,24 +18,5 @@
 
 
 
-
-
-
-<footer> 
-
-    <div class="widget">
-        <script type="text/javascript" src="https://files.coinmarketcap.com/static/widget/coinMarquee.js"></script>
-        <div id="coinmarketcap-widget-marquee" coins="1,1027,8757,5994,3408,74,4030,5805" currency="USD" theme="dark" transparent="false" show-symbol-logo="true"></div>
-    </div>
-
-        <h4>
-            Join the team. 
-        </h4>
-
-</footer>
-
-
-
-</html>
 
 

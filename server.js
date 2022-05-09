@@ -1,10 +1,15 @@
 //imports
 const express = require('express');
+const expressLayouts = require('express-ejs-layouts');
+
 const app = express();
 const port = process.env.PORT || 8080;
- 
+
 const {MongoClient} =require('mongodb');
 const dotenv = require('dotenv');
+
+const { title } = require('process');
+const { default: mongoose } = require('mongoose');
 
 var ejs = require('ejs');
 var path = require('path');
@@ -12,12 +17,16 @@ var path = require('path');
 dotenv.config();
 
 
+
+
+
+
 async function main(){
     /**
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
      * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
      */
-    const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@ttdb.jxq41.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+    const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@tattltell-db.jxq41.mongodb.net/ttdb?retryWrites=true&w=majority`;
     
     const client = new MongoClient(uri);
     
@@ -33,7 +42,10 @@ async function main(){
         }   finally {
                 await client.close();
         }
+
 }
+
+
 
  main().catch(console.error);
             
@@ -49,9 +61,22 @@ async function listDatabases(client){
 };
 
 
+
+
+
 // Static files
+app.use(express.urlencoded( { extended: true } ));
 app.use(express.static('public'));
+app.use(express.static('img'));
+app.use('/img', express.static(__dirname + '/img'));
 app.use('/public', express.static(__dirname + '/public'));
+app.use(expressLayouts);
+
+app.set('layout', './layouts/main.ejs');
+
+const routes = require('./server/routes/wagesRoutes.js');
+app.use ('/', routes);
+
 
 
 // Set Views
@@ -61,16 +86,27 @@ app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
     res.render('index.ejs');
-  });
+    });
 
 app.get('/index.ejs', (_req, res) => {
-    res.render('index', { text: 'This is EJS!'})
-})
+    res.render('index')
+    });
+
+app.get('/contact.ejs', (_req, res) => {
+    res.render('contact')
+     });
+
+app.get('/about.ejs', (_req, res) => {
+    res.render('about')
+     });
+
+app.get('/login.ejs', (_req, res) => {
+    res.render('login')
+     });
 
 app.get('/searchdb.ejs', (_req, res) => {
-    res.render('searchdb', { text: 'This is EJS!'})
-})
-
+    res.render('searchdb')
+     });
 
 
 //Listen on port 3000
