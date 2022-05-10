@@ -15,37 +15,42 @@ body {   padding: 0;   margin: 0;}
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  [class*="col-"] {
+    width: 100%;
+  }
 }
 /* "*" marks a universalsetting to all the code */
 
 html {
   background-color: rgb(232, 232, 232);
+  height: 100%;
 }
 
 
+
 header .content {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family: 'Gill Sans';
   flex-wrap: wrap;
   flex-direction: column;
   position: relative;
-  display: inline-block;
   max-width: 100%;
   max-height: 100%;
   top: 30%;
   left: 15%;
   width: 30%;
-  
-
- 
 }
 
 header .content h2 {
   font-family: helvetica 'Courier New', Courier, monospace;
   flex-wrap: wrap;
-
   display: inline-block;
   color: #fff;
-  font-size: 8em;
+  font-size: 8vw;
   position: absolute;
   transform: translate(-50%, -50%);
  
@@ -98,15 +103,13 @@ header .content h2:nth-child(2) {
 
 
 header {
-  flex-direction: column;
+  flex-direction: row;
   flex-wrap: wrap;
-
-  position:fixed;
-  text-align: right;
-  align-items: center;
+  display: flex;
+  position:absolute;
+  justify-content: space-evenly;
   color: rgb(255, 255, 255);
-  background-image: linear-gradient(to bottom right, rgb(102, 255, 217), rgb(0, 93, 74));
-  height: 180px;
+  background-image: linear-gradient(to bottom right, rgb(146, 129, 242), rgb(3, 0, 93));
   top: 0;
   left: 0;
   right: 0;
@@ -119,13 +122,11 @@ header {
 }
 
 header * {
+  
   display: inline;
   margin-left:auto;
 }
 
-header h1 {
-  float: left;
-}
 
 header li {
   margin: 30px;
@@ -133,25 +134,42 @@ header li {
 
 }
 
+/** removes href link */
 header li a {
   color:black;
   text-decoration: none;
   font-size: large;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 ul a:hover{
   color:rgb(255, 255, 255);
 }
 
-h2 {
-  position: static;
+
+header .searchDescription {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 100;
   right: 100;
-
-
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  
 }
 
+header .searchDescription a{
+  text-decoration: none;
+}
+
+header .searchDescription .phButton{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
 body {
+  height: 100%;
+  margin-top: 300;
   display: flex;
   flex-wrap: wrap;
   align-content: space-around;
@@ -166,37 +184,79 @@ body .container1 {
 
 .container1 .smartData {
   font-size: 40;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+  
+}
+
+.container1 .mainParagraph {
+  color: #5d5d5d;
 }
 
 
 body .container2 {
+  display: flex;
   background-color: #fff;
   flex-direction: column;
-  width: 20% ;
+  width:40% ;
   color: rgb(0, 0, 0);
-  border-radius: 20%;
+  border-radius: 15px 15px 15px 15px;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: larger;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   
 }
-.container2 form { 
-  color: rgb(0, 0, 0);
-  margin: 0 auto;
-  width: 80%;
-  text-align: center;
-  justify-content: center;
+
+
+
+
+
+
+
+.container3  {
+  display: flex;
+  height: 300;
+  column-gap: 50px;
+  border-color: #000000;
+  justify-content: space-around;
+  
 
 }
 
+.container3 button {
+  top: 10;
+  font-size: x-large;
+  border-radius: 6px 6px 6px 6px;
+  padding: 20;
+  vertical-align: middle;
+  text-align: center;
+  justify-content: center;
+  
+}
+
+.container3 .exploreButton button{
+  background-color: #000000;
+  color: white;
+
+}
+
+.container3 .contributeButton button{
+  background-color: white;
+  color: black;
+
+}
 
 
 
 
 footer {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   background-color: rgb(85, 85, 85);
   width: 100%;
   bottom: 0;
+  left: 0;
   text-align: center;
 
   
@@ -205,7 +265,8 @@ footer {
 
 footer h4 {
   
-  height: 20;
+  
+  bottom: 0;
 
 }
 

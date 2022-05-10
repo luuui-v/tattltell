@@ -16,27 +16,32 @@
               <h2>tattltell</h2>
             </div>
           </section>
-   
-        <nav class="navigationMenu">
-         <ul>
-            <li><a href="index.ejs">Home</a></li>
-            <li><a href="about.ejs">About</a></li>
-            <li><a href="contact.ejs">Contact</a></li>
-            <li><a href="login.ejs">Login</a></li>
-         </ul>
-        </nav>
- <br> 
- <br> 
-    <h3>
-        Look up earnings in your area
-    </h3>
-<br>
-<br>
-      <input type="searchBar" placeholder="Employer, Position, Area">
-    <button>
-        <a href="searchdb.ejs">search</a>
-    </button>
+
+   <div class="navSearch">
+                <nav class="navigationMenu">
+                    <ul>
+                        <li><a href="index.ejs">Home</a></li>
+                        <li><a href="about.ejs">About</a></li>
+                        <li><a href="contact.ejs">Contact</a></li>
+                        <li><a href="login.ejs">Login</a></li>
+                    </ul>
+                </nav>
+    
+            <br> 
+            <br> 
+         <div class="searchDescription">
+                <div class=lookUp>Look up earnings in your area</div>
+                    <div clase="phButton">
+                        <input type="searchBar" placeholder="Employer, Position, Area">
+    
+                        <button>
+                            <a href="searchdb.ejs">search</a>
+                        </button>
+                   </div>
+        </div>
+    </div>
  </header>
+
 
 
 <body>
@@ -44,6 +49,10 @@
     <%- body -%>
 
 </body>
+
+
+
+
 
 
 <footer> 
