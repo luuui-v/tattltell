@@ -27,7 +27,7 @@ body {   padding: 0;   margin: 0;}
 /* "*" marks a universalsetting to all the code */
 
 html {
-  background-color: rgb(232, 232, 232);
+  background-color: rgb(194, 176, 176);
   height: 100%;
 }
 
@@ -109,7 +109,7 @@ header {
   position:absolute;
   justify-content: space-evenly;
   color: rgb(255, 255, 255);
-  background-image: linear-gradient(to bottom right, rgb(146, 129, 242), rgb(3, 0, 93));
+  background-image: linear-gradient(to bottom right, rgb(255, 169, 169), rgb(5, 26, 59));
   top: 0;
   left: 0;
   right: 0;
@@ -177,6 +177,14 @@ body {
   justify-content: center;
 }
 
+body svg{
+    z-index:-1;
+    position: absolute;
+    overflow: visible;
+  }
+
+
+
 body .container1 {
   flex-direction: column;
   width: 40%;
@@ -204,7 +212,7 @@ body .container2 {
   align-items: center;
   font-size: larger;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  
+  box-shadow: 5px 5px 0 0 black;
 }
 
 
@@ -219,6 +227,7 @@ body .container2 {
   column-gap: 50px;
   border-color: #000000;
   justify-content: space-around;
+  
   
 
 }
@@ -237,12 +246,14 @@ body .container2 {
 .container3 .exploreButton button{
   background-color: #000000;
   color: white;
+  box-shadow: 5px 5px 0 0 rgb(231, 231, 231);
 
 }
 
 .container3 .contributeButton button{
   background-color: white;
   color: black;
+  box-shadow: 5px 5px 0 0 black;
 
 }
 
