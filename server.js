@@ -73,10 +73,10 @@ app.use('/img', express.static(__dirname + '/img'));
 app.use('/public', express.static(__dirname + '/public'));
 app.use(expressLayouts);
 
-app.set('layout', './layouts/main.ejs');
+app.set('layout', './layouts/common.ejs');
 
 const routes = require('./server/routes/wagesRoutes.js');
-app.use ('/', routes);
+
 
 
 
@@ -86,11 +86,11 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-    res.render('index.ejs');
+    res.render('index.ejs', {layout:'layouts/main'});
     });
 
 app.get('/index.ejs', (_req, res) => {
-    res.render('index')
+    res.render('index', {layout:'layouts/main'});
     });
 
 app.get('/contact.ejs', (_req, res) => {
