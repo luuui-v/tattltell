@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" type="text/css" href="public/common.css" />
+    <link rel="stylesheet" type="text/css" href="public/sample.css" />
     
 </head>
 
@@ -50,7 +50,42 @@
 
 <body>
 
-    <%- body -%>
+    <body>
+        <div class="table-data">
+            <h2>Sample Data Wages</h2>
+                <table border="1">
+                    <tr>
+                        <th scope="col">Company</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Company</th>
+                        <th scope="col">City/State</th>
+                    </tr>
+
+                 <tr>
+                    <td scope="row"><%- rows[1].company %> </td>
+                    <td scope="row"><%- rows[1].title %></td>
+                    <td scope="row"><%- rows[1].company_hourly_wages %></td>
+                    <td scope="row"><%- rows[1].city_state %></td>
+
+                 </tr>
+                 <tr>
+                    <td scope="row"><%- rows[0].company %> </td>
+                    <td scope="row"><%- rows[0].title %></td>
+                    <td scope="row"><%- rows[0].company_hourly_wages %></td>
+                    <td scope="row"><%- rows[0].city_state %></td>
+
+                 </tr>
+                </table>
+
+               
+    
+    
+    
+        </div>
+        
+            
+       
+    </body>
 
 </body>
 
@@ -69,4 +104,6 @@
         </h4>
 </footer>
 </html>
+
+
 

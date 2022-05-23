@@ -1,65 +1,48 @@
 //imports
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
-
+const exphbs = require('express-handlebars');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8080;
-
-const {MongoClient} =require('mongodb');
 const dotenv = require('dotenv');
-
 const { title } = require('process');
-const { default: mongoose } = require('mongoose');
-
+const database = require('./db/database');
 var ejs = require('ejs');
 var path = require('path');
+const router = require('./db/database');
+const e = require('connect-flash');
+const mysql = require('mysql2');
+
 
 dotenv.config();
 
 
 
 
+const connection = mysql.createConnection({
+    host: process.env.host,
+    user: process.env.user,
+    password: process.env.password,
+    database: process.env.database,
+    port: process.env.port
+})
 
 
 
-async function main(){
-    /**
-     * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
-     * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
-     */
-    const uri = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@tattltell-db.jxq41.mongodb.net/ttdb?retryWrites=true&w=majority`;
-    
-    const client = new MongoClient(uri);
-    
+connection.connect((err) => {
+    if (err) {
+      console.log('error connecting: ');
+      return;
+    }
+    console.log('success');
+  });
 
-        try {
-            // Connect to the MongoDB cluster
-            await client.connect();
-             // Make the appropriate DB calls
-            await listDatabases(client);
 
-        } catch (e) {
-            console.error(e);
-        }   finally {
-                await client.close();
-        }
-
-}
+module.exports = connection
 
 
 
- main().catch(console.error);
-            
- /**
- * Print the names of all available databases
- * @param {MongoClient} client A MongoClient that is connected to a cluster
- */
-async function listDatabases(client){
-    databasesList = await client.db(). admin().listDatabases();
-
-    console.log("Databases:");
-    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
 
 
 
@@ -72,16 +55,18 @@ app.use(express.static('img'));
 app.use('/img', express.static(__dirname + '/img'));
 app.use('/public', express.static(__dirname + '/public'));
 app.use(expressLayouts);
+app.use(cors());
+app.use(express.json());
 
 app.set('layout', './layouts/common.ejs');
 
-const routes = require('./server/routes/wagesRoutes.js');
 
 
 
 
 // Set Views
 app.set('views', path.join(__dirname, 'views'));
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 
@@ -101,13 +86,31 @@ app.get('/about.ejs', (_req, res) => {
     res.render('about')
      });
 
-app.get('/login.ejs', (_req, res) => {
-    res.render('login')
-     });
+app.get('/sample.ejs', (_req, res) => {
+    connection.query('SELECT * FROM wages', (error, rows) => {
+        if (error) throw error;
+
+    if (!error) {
+      console.log(rows);
+      console.log(i);
+      if(rows && rows.length>0) {
+    
+      var values = [];
+      for (var i = 0; i < rows.length; i++) {
+        values.push([rows[i].company, rows[i].title]);
+    }}
+    res.render('sample', {layout: 'sample', rows});
+};
+});
+});
+
 
 app.get('/searchdb.ejs', (_req, res) => {
     res.render('searchdb')
      });
+
+
+
 
 
 //Listen on port 3000
